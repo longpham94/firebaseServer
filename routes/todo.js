@@ -26,4 +26,41 @@ router.post('/', async function(req, res, next) {
   res.end();
 });
 
+/* POST change status. */
+router.post('/status', async function(req, res, next) {
+  var userdata = {"message": "error"};
+  var id = req.body.id;
+  var status = req.body.status;
+  await todo.changestatus(id,status).then(function (v) {
+    userdata = v;
+  });
+  res.send(userdata);
+  res.end();
+});
+
+/* DELETE todo. */
+router.post('/remove', async function(req, res, next) {
+  var userdata = {"message": "error"};
+  var id = req.body.id;
+  await todo.remove(id).then(function (v) {
+    userdata = v;
+  });
+  res.send(userdata);
+  res.end();
+});
+
+/* PUT todo list. */
+router.put('/', async function(req, res, next) {
+  var userdata = {"message": "error"};
+  var id = req.body.id;
+  var name = req.body.name;
+  var des = req.body.des;
+  var status = req.body.status;
+  await todo.update(id,name,des,status).then(function (v) {
+    userdata = v;
+  });
+  res.send(userdata);
+  res.end();
+});
+
 module.exports = router;
