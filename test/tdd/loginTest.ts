@@ -63,8 +63,7 @@ describe('Login API Test', function() {
               }
               console.log("Body : ******");
               console.dir(JSON.parse(response.body).message);
-              expect(JSON.parse(response.body).message).toEqual("Bad request");
-      
+              expect(JSON.parse(response.body).message).toEqual("Bad request");   
               // this below line took half day of research
               done();
         });
