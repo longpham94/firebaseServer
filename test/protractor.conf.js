@@ -8,11 +8,18 @@ exports.config = {
   specs: [
     // './tdd/**/*.ts',
     // './Features/**/*.ts'
-    './tdd/**/changePassTest.ts'
+    './tdd/**/loginTest.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'chromeOptions': {
+      'args': ['show-fps-counter=true',
+            "--disable-gpu",
+            "--headless", 'no-sandbox'
+          ]
+        },
   },
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
   baseUrl: 'http://localhost:3000/',
   framework: 'jasmine',

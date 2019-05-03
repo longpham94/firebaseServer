@@ -1,7 +1,7 @@
 Function: Login
 
 Requirements:
-- Valid credential => respone message: login successfully!
-- Invalid credential => respone message: login failed;
+- Valid credential => respone message: "login successfully!"
+- Invalid credential => respone message: "The password is invalid or the user does not have a password."
 - Invalid request format:
-> missing fields (email or password) => response message: Bad request; statusCode: 400
+> missing fields (email or password) => response message: Bad request

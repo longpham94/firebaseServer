@@ -48,6 +48,10 @@ router.post('/signin', async function(req, res, next){
   var errorCode = 0;
   var message = "";
   var uid = "";
+  if (typeof email === 'undefined' || typeof password === 'undefined'){
+    errorCode = 400;
+    message = "Bad request";
+  }
   if (errorCode == 0){
     await firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       errorCode = error.code;
